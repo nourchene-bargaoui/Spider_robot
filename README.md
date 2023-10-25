@@ -1,5 +1,5 @@
 ## Freenove Big Hexapod Robot Kit for Raspberry Pi and Semantic Segmentation with Pytorch
-
+#Please See Project PDF above for all details !
 > A Hexapod Robot Kit for Raspberry Pi.
 
 
