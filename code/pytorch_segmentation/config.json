@@ -1,0 +1,69 @@
+{
+    "arch": {
+        "args": {
+            "backbone": "resnet50",
+            "freeze_backbone": false,
+            "freeze_bn": false
+        },
+        "type": "ENet"
+    },
+    "ignore_index": 255,
+    "loss": "CrossEntropyLoss2d",
+    "lr_scheduler": {
+        "args": {},
+        "type": "Poly"
+    },
+    "n_gpu": 1,
+    "name": "ENet",
+    "optimizer": {
+        "args": {
+            "lr": 0.01,
+            "momentum": 0.9,
+            "weight_decay": 0.0001
+        },
+        "differential_lr": true,
+        "type": "SGD"
+    },
+    "train_loader": {
+        "args": {
+            "augment": true,
+            "base_size": 1024,
+            "batch_size": 8,
+            "blur": false,
+            "crop_size": 512,
+            "data_dir": "/home/pi/Downloads",
+            "flip": true,
+            "mode": "fine",
+            "num_workers": 8,
+            "rotate": true,
+            "scale": true,
+            "shuffle": true,
+            "split": "train"
+        },
+        "type": "CityScapes"
+    },
+    "trainer": {
+        "early_stop": 10,
+        "epochs": 80,
+        "log_dir": "saved/runs",
+        "log_per_iter": 20,
+        "monitor": "max Mean_IoU",
+        "save_dir": "saved/",
+        "save_period": 1,
+        "tensorboard": true,
+        "val": true,
+        "val_per_epochs": 5
+    },
+    "use_synch_bn": true,
+    "val_loader": {
+        "args": {
+            "batch_size": 1,
+            "data_dir": "/home/pi/Downloads",
+            "mode": "fine",
+            "num_workers": 4,
+            "split": "val",
+            "val": true
+        },
+        "type": "CityScapes"
+    }
+}
